@@ -44,7 +44,7 @@ const createStepsElements = (element) => {
     prep_steps_data.innerHTML += `<li class="text-gray-400"><span class="text-xs font-medium">${element}</span></li>`;
 };
 const createImagesElements = (element) => {
-    images_link_data.innerHTML += `<div class="flex flex-wrap w-1/3"><div class="w-full p-1 md:p-2"><a data-fancybox="gallery" class="rounded-lg" data-src="/wp-content/plugins/wp-nutrily-main/dist/uploads/${element}"><img alt="gallery" class="block object-cover object-center h-48 w-96 rounded-lg" src="/wp-content/plugins/wp-nutrily-main/dist/uploads/${element}"></a></div></div>`;
+    images_link_data.innerHTML += `<div class="flex flex-wrap w-1/3"><div class="w-full p-1 md:p-2"><a data-fancybox="gallery" class="rounded-lg" data-src="/wp-content/plugins/wp-nutrily-plugin-main/dist/uploads/${element}"><img alt="gallery" class="block object-cover object-center h-48 w-96 rounded-lg" src="/wp-content/plugins/wp-nutrily-plugin-main/dist/uploads/${element}"></a></div></div>`;
 };
 export function getMealDetails(meal_id) {
     return __awaiter(this, void 0, void 0, function* () {

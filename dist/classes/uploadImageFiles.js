@@ -110,7 +110,7 @@ export function postImages() {
         file_names.push({ "img_link": (_a = dt.items[i].getAsFile()) === null || _a === void 0 ? void 0 : _a.name });
     }
     if (filesArray) {
-        fetch("/wp-content/plugins/wp-nutrily-main/dist/upload.php", { method: 'POST', body: form_data })
+        fetch("/wp-content/plugins/wp-nutrily-plugin-main/dist/upload.php", { method: 'POST', body: form_data })
             .then(function (response) {
             return response.text();
         }).then(function (text) {

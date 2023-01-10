@@ -81,7 +81,7 @@ $request_uri_string = $_SERVER['REQUEST_URI'];
 
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script type="module" src="/wp-content/plugins/wp-nutrily-main/dist/app.js"></script>
+    <script type="module" src="/wp-content/plugins/wp-nutrily-plugin-main/dist/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
   </body>
 </html>

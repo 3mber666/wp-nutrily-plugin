@@ -124,7 +124,7 @@ export function postImages() {
     }
 
     if(filesArray) {
-        fetch("/wp-content/plugins/wp-nutrily-main/dist/upload.php", { method: 'POST', body : form_data})
+        fetch("/wp-content/plugins/wp-nutrily-plugin-main/dist/upload.php", { method: 'POST', body : form_data})
             .then(function(response) { 
                 return response.text(); 
             }).then(function(text) {
