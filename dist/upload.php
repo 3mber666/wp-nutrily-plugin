@@ -3,6 +3,10 @@
 // Make sure the captured data exists
 if (isset($_FILES['files']) && !empty($_FILES['files'])) {
     // Upload destination directory
+    if (!is_dir('uploads/')) {
+        mkdir('uploads/', 0777, true);
+    }
+
     $upload_destination = 'uploads/';
     // Iterate all the files and move the temporary file to the new directory
     for ($i = 0; $i < count($_FILES['files']['tmp_name']); $i++) {

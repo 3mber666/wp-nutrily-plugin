@@ -1,5 +1,5 @@
 <?php
-require_once WPRK_PATH . 'supports/password-access.php';
+// require_once WPRK_PATH . 'supports/password-access.php';
 
 add_action('parse_request', 'userReceiver1');
 function userReceiver1() {
