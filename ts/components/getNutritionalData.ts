@@ -13,10 +13,16 @@ function getNutritionalData(data: any) {
     const nutritional_table_2 = document.querySelector('.t-2');
 
     function parseResult(name: number, unit: string) {
-      if(name)
-        return (name.toFixed(2)).replace(".", ",") + `${unit}`;
-      return 0 + `${unit}`;
+      // if(name)
+      //   result = name / 4.184;
+      //   return result.toFixed(2).replace(".", ",") + `${unit}`;
+      // return 0 + `${unit}`;
+      if(name) {
+        const calc = name / 4.184;
+        return calc.toFixed(2).replace(".", ",") + `${unit}`;
+      }
     }
+
     let html_1 = "";
     let html_2 = "";
     let result = data.reduce((c: any, v: any) => {
