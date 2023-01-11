@@ -172,7 +172,7 @@
                                   <div class="p-1 border-2 border-black font-sans w-full">
                                     <div class="text-4xl font-extrabold leading-none">Nutrition Facts</div>
                                     <div class="t-1 border-t-4 border-black text-sm pb-1"></div>
-                                    <div class="t-2 hidden border-t-8 border-black pt-1 text-sm">
+                                    <div class="t-2 border-t-8 border-black pt-1 text-sm">
                                         <div class="border-t-4 border-black flex leading-none text-xs pt-2 pb-1">
                                             <div class="pr-1">*</div>
                                             <div>The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</div>
