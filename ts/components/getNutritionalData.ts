@@ -17,6 +17,7 @@ function getNutritionalData(data: any) {
       //   result = name / 4.184;
       //   return result.toFixed(2).replace(".", ",") + `${unit}`;
       // return 0 + `${unit}`;
+      console.log(name);
       if(name) {
         const calc = name / 4.184;
         return calc.toFixed(2).replace(".", ",") + `${unit}`;

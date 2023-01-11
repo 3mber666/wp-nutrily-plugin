@@ -4,7 +4,7 @@
  * Plugin Name: WP Nutrily
  * Author: TVS
  * Author URI: https://tugasvirtualsolutions.com/
- * Version: 1.0.11
+ * Version: 1.0.12
  * Description: Nutritional Plan Software.
  * Text-Domain: nutrily.de
  * 

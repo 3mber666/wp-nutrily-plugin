@@ -20,9 +20,15 @@ function getNutritionalData(data) {
     const nutritional_table_1 = document.querySelector('.t-1');
     const nutritional_table_2 = document.querySelector('.t-2');
     function parseResult(name, unit) {
-        if (name)
-            return (name.toFixed(2)).replace(".", ",") + `${unit}`;
-        return 0 + `${unit}`;
+        // if(name)
+        //   result = name / 4.184;
+        //   return result.toFixed(2).replace(".", ",") + `${unit}`;
+        // return 0 + `${unit}`;
+        console.log(name);
+        if (name) {
+            const calc = name / 4.184;
+            return calc.toFixed(2).replace(".", ",") + `${unit}`;
+        }
     }
     let html_1 = "";
     let html_2 = "";
