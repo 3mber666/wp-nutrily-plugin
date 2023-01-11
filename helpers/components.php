@@ -65,6 +65,7 @@ function create_user_meal(
 
     $optional_ingredients_arr = json_decode($optional_ingredients, true);
 
+    if(count($optional_ingredients_arr) != 1) {
     for ($i = 0; $i < count($optional_ingredients_arr); $i++)
     {
         array_push(
@@ -79,11 +80,16 @@ function create_user_meal(
     
     insert_multiple_rows('vegan_foodname_de', $optional_ingredients_data);
     insert_multiple_rows('vegan_ingredient_data_optional', $optional_ingredients_data_2);
+  } else {
+    $wpdb->insert('vegan_foodname_de', array('odid' => '', 'foodname' => $optional_ingredients_arr[0]["foodname"]));
+    $wpdb->insert('vegan_ingredient_data_optional', array( 'meal_id' => $key, 'foodname' => $optional_ingredients_arr[0]["foodname"], 'qty' => $optional_ingredients_arr[0]["quantity"], 'unit' => $optional_ingredients_arr[0]["unit"]));
+  }
 
 
     $prep_step_data = array();
     $prep_steps_arr = json_decode($prep_steps, true);
 
+    if(count($prep_steps_arr) != 1) {
     for($i = 0; $i < count($prep_steps_arr); $i++) 
     {
         array_push(
@@ -91,10 +97,13 @@ function create_user_meal(
             array('meal_id' => $key, 'steps' => $prep_steps_arr[$i]["steps"]),
         ); 
     }
+    insert_multiple_rows('vegan_prep_steps', $prep_step_data);
+   } else {
+    $wpdb->insert('vegan_prep_steps', array('meal_id' => $key, 'steps' => $prep_steps_arr[0]["steps"]));
+   }
 
     $ingredient_names_arr = json_decode($ingredients_names, true);
-
-
+    if(count($ingredient_names_arr) != 1) {
     for ($i = 0; $i < count($ingredient_names_arr); $i++)
     {
         array_push(
@@ -102,18 +111,26 @@ function create_user_meal(
             array( 'odid' => $ingredient_names_arr[$i]["odid"], 'meal_id' => $key, 'qty' => $ingredient_names_arr[$i]["qty"], 'unit' => $ingredient_names_arr[$i]["unit"]),
         );
     }
+    
+    insert_multiple_rows('vegan_ingredient_data', $ingredient_names_data);
+    } else {
+      $wpdb->insert('vegan_ingredient_data', array( 'odid' => $ingredient_names_arr[0]["odid"], 'meal_id' => $key, 'qty' => $ingredient_names_arr[0]["qty"], 'unit' => $ingredient_names_arr[0]["unit"]));
+    }
 
 
-    $img_link_data = array();
     $img_link_arr = json_decode($img_link, true);
-
-
+    if(count($img_link_arr) != 1) {
+    $img_link_data = array();
     for ($i = 0; $i < count($img_link_arr); $i++)
     {
         array_push(
             $img_link_data,
             array('img_link' => $img_link_arr[$i]["img_link"], 'meal_id' => $key),
         );
+    }
+      insert_multiple_rows('vegan_meal_images', $img_link_data);
+    } else {
+      $wpdb->insert('vegan_meal_images', array('img_link' => $img_link_arr[0]["img_link"], 'meal_id' => $key));
     }
 
     // this is for meal notes
@@ -124,11 +141,8 @@ function create_user_meal(
       'optional_notes' => $optional_note,
       ));
       
-    $res2 = insert_multiple_rows('vegan_meal_images', $img_link_data);
-    $res3 = insert_multiple_rows('vegan_ingredient_data', $ingredient_names_data);
-    $res4 = insert_multiple_rows('vegan_prep_steps', $prep_step_data);
 
-    if($res1 && $res2 && $res3 && $res4) {
+    if($res1) {
         return 'success';
     }
 }
